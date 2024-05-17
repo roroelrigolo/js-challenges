@@ -1,3 +1,3 @@
 import './style.css';
 
-document.body.insertAdjacentHTML('beforeend', '<h1>Hello World!</h1>');
+//document.body.insertAdjacentHTML('beforeend', '<h1>Hello World!</h1>');

@@ -9,7 +9,8 @@
 		"format": "prettier --write .",
 		"preview": "vite preview",
 		"test": "vitest",
-		"test:e2e": "playwright test"
+		"test:e2e": "playwright test",
+		"test:e2e:ui": "playwright test--ui"
 	},
 	"dependencies": {
 		"react": "^18.2.0",
@@ -53,7 +54,7 @@
 		"vitest": "^1.6.0"
 	},
 	"engines": {
-		"node": "22.1.0",
+		"node": "22.2.0",
 		"pnpm": "9.1.1"
 	}
 }

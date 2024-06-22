@@ -124,11 +124,11 @@ export function appendConvertInTable(price:string, deviseBase:string, result:num
 	if(tbody){
 		const tr = document.createElement('tr');
 		const date = new Date();
-		const columnsTr = [price,deviseBase,result,deviseFinal,date.toDateString()]
-		for (const title of columnsTr) {
+		const columnsTr = [price,deviseBase,result.toString(),deviseFinal,date.toDateString()]
+		for (const text of columnsTr) {
 			const td = document.createElement('td');
-			if (typeof title === "string") {
-				td.textContent = title;
+			if (typeof text === "string") {
+				td.textContent = text;
 			}
 			tr.append(td);
 		}

@@ -1,6 +1,7 @@
 function IconPen() {
   return (
     <svg
+      className="icon-edit"
       fill="currentColor"
       viewBox="0 0 16 16"
       height="1em"

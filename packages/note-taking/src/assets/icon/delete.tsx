@@ -1,6 +1,7 @@
 function IconDelete() {
     return (
       <svg
+        className="icon-delete"
         viewBox="0 0 1024 1024"
         fill="currentColor"
         height="1em"

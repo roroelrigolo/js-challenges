@@ -1,6 +1,7 @@
 function IconEye() {
     return (
       <svg
+        className="icon-display"
         viewBox="0 0 1024 1024"
         fill="currentColor"
         height="1em"

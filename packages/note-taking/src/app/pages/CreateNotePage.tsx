@@ -27,6 +27,7 @@ const CreateNotePage: React.FC = () => {
             <p className='description-input'>Le titre est limité à 50 caractères</p>
             <input
               type="text"
+              name='title'
               maxLength={50}
               value={title}
               onChange={(e) => setTitle(e.target.value)}
@@ -35,6 +36,7 @@ const CreateNotePage: React.FC = () => {
           <div>
             <label>Contenu </label>
             <textarea
+              name='content'
               value={content}
               rows={15}
               onChange={(e) => setContent(e.target.value)}

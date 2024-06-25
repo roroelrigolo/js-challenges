@@ -2,7 +2,7 @@ import type { Currencies } from './types/currency.ts';
 
 import { fetchCurrencies, fetchRatio } from './api.ts';
 
-export async function poupalteSelects(idSelect: string) {
+export async function populateSelects(idSelect: string) {
 	const currencies = await fetchCurrencies("");
 	const selectElement = document.querySelector('#'+idSelect);
 	if(currencies && selectElement){

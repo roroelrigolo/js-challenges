@@ -30,11 +30,11 @@
 		</article>
 	</main>
 	<script type="module">
-		import { poupalteSelects, displayConvertResult } from './src/converter.ts';
+		import { populateSelects, displayConvertResult } from './src/converter.ts';
 
 		window.addEventListener('load', async () => {
-			poupalteSelects('devise-base');
-			poupalteSelects('devise-final');
+			populateSelects('devise-base');
+			populateSelects('devise-final');
 		});
 
 		const form = document.querySelector('form');

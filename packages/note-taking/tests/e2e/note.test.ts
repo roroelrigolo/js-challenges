@@ -1,5 +1,4 @@
 import { test, expect } from '@playwright/test';
-
 test.describe('Note App', () => {
     test('should display a message when no notes are available', async ({ page }) => {
         await page.goto('/');

@@ -1,19 +1,19 @@
-// src/pages/CreateNotePage.tsx
-import React, { useState } from 'react';
 import { Link, useNavigate } from '@tanstack/react-router';
-import useStore from '../../store/useStore';
+import React, { useState } from 'react';
 
-const CreateNotePage: React.FC = () => {
+import use_store from '../../store/use_store.tsx';
+
+const Create_note_page: React.FC = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const addNote = useStore((state) => state.addNote);
+  const addNote = use_store((state) => state.addNote);
   const navigate = useNavigate();
 
-  const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-    addNote(title, content);
-    navigate({ to: '/' });
-  };
+	const handleSubmit = (event: React.FormEvent) => {
+		event.preventDefault();
+		addNote(title, content);
+		void navigate({ to: '/' })
+	};
 
   return (
     <div className='content-xl'>
@@ -30,7 +30,7 @@ const CreateNotePage: React.FC = () => {
               name='title'
               maxLength={50}
               value={title}
-              onChange={(e) => setTitle(e.target.value)}
+              onChange={(event) => setTitle(event.target.value)}
             />
           </div>
           <div>
@@ -39,7 +39,7 @@ const CreateNotePage: React.FC = () => {
               name='content'
               value={content}
               rows={15}
-              onChange={(e) => setContent(e.target.value)}
+              onChange={(event) => setContent(event.target.value)}
             />
           </div>
         <button className='btn-primary' type="submit">Ajouter</button>
@@ -48,4 +48,4 @@ const CreateNotePage: React.FC = () => {
   );
 };
 
-export default CreateNotePage;
+export default Create_note_page;

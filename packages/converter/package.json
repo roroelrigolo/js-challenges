@@ -41,8 +41,8 @@
 		"vitest": "^1.6.0"
 	},
 	"engines": {
-		"node": "22.3.0",
-		"pnpm": "9.4.0"
+		"node": "22.2.0",
+		"pnpm": "9.1.1"
 	},
 	"dependencies": {
 		"@picocss/pico": "^2.0.6"

@@ -2,8 +2,7 @@ import { screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
 import { render } from '../../tests/utils.js';
-
-import ContentSubstr from '../components/contentSubstr.js';
+import ContentSubstr from '../components/content_substr.js';
 
 describe('Component', () => {
 	it('renders full content if less than or equal to 100 characters', () => {

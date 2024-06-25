@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
 import { useParams, Link, useNavigate } from '@tanstack/react-router';
-import useStore from '../../store/useStore';
-import IconEye from '../../assets/icon/eye';
-import IconDelete from '../../assets/icon/delete';
+import React, { useState } from 'react';
 
-const EditNotePage: React.FC = () => {
+import IconDelete from '../../assets/icon/delete';
+import IconEye from '../../assets/icon/eye';
+import use_store from '../../store/use_store.tsx';
+
+const Edit_note_page: React.FC = () => {
     const { noteId } = useParams({from: undefined});
-  const note = useStore((state) => state.getNote(noteId));
-  const updateNote = useStore((state) => state.updateNote);
+  const note = use_store((state) => state.getNote(noteId));
+  const updateNote = use_store((state) => state.updateNote);
   const navigate = useNavigate();
   const [title, setTitle] = useState(note?.title || '');
   const [content, setContent] = useState(note?.content || '');
-  const deleteNote = useStore((state) => state.deleteNote);
+  const deleteNote = use_store((state) => state.deleteNote);
 
   if (!note) {
     return <div>Note non trouvée</div>;
@@ -20,13 +21,13 @@ const EditNotePage: React.FC = () => {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     updateNote(note.id, title, content);
-    navigate({ to: `/note/${note.id}` });
+    void navigate({ to: `/note/${note.id}` });
   };
 
   const handleDelete = (id: string) => {
     if (window.confirm('Êtes-vous sûr de vouloir supprimer cette note ?')) {
       deleteNote(id);
-      navigate({ to: `/` });
+      void navigate({ to: `/` });
     }
   };
 
@@ -52,7 +53,7 @@ const EditNotePage: React.FC = () => {
             name='title'
             value={title}
             maxLength={50}
-            onChange={(e) => setTitle(e.target.value)}
+            onChange={(event) => setTitle(event.target.value)}
           />
         </div>
         <div>
@@ -61,7 +62,7 @@ const EditNotePage: React.FC = () => {
               name='content'
               value={content}
               rows={15}
-              onChange={(e) => setContent(e.target.value)}
+              onChange={(event) => setContent(event.target.value)}
             />
         </div>
         <button className='btn-primary' type="submit">Modifier</button>
@@ -70,4 +71,4 @@ const EditNotePage: React.FC = () => {
   );
 };
 
-export default EditNotePage;
+export default Edit_note_page;

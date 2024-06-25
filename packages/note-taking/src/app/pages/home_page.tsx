@@ -1,16 +1,17 @@
-import React from 'react';
+import type { Note } from '../../types/note.tsx';
+
 import { Link } from '@tanstack/react-router';
-import ContentSubstr from '../../components/contentSubstr';
-import useStore from '../../store/useStore';
-import IconPen from '../../assets/icon/pen';
-import IconEye from '../../assets/icon/eye';
+import React from 'react';
+
 import IconDelete from '../../assets/icon/delete';
+import IconEye from '../../assets/icon/eye';
+import IconPen from '../../assets/icon/pen';
+import ContentSubstr from '../../components/content_substr';
+import use_store from '../../store/use_store.tsx';
 
-
-
-const HomePage: React.FC = () => {
-  const notes = useStore((state: { notes: any; }) => state.notes);
-  const deleteNote = useStore((state) => state.deleteNote);
+const Home_page: React.FC = () => {
+	const notes: Array<Note> = use_store((state) => state.notes);
+  const deleteNote = use_store((state) => state.deleteNote);
 
   const handleDelete = (id: string) => {
     if (window.confirm('Êtes-vous sûr de vouloir supprimer cette note ?')) {
@@ -28,7 +29,7 @@ const HomePage: React.FC = () => {
         <p>Vous n'avez aucune note pour le moment 😶</p>
       ) : (
         <div className='list-notes'>
-          {notes.map((note:any) => (
+          {notes.map((note) => (
             <div className='note' key={note.id} style={{ backgroundColor: note.color }}>
               <div>
                 <p className='title'>{note.title}</p>
@@ -50,4 +51,4 @@ const HomePage: React.FC = () => {
   );
 };
 
-export default HomePage;
+export default Home_page;
